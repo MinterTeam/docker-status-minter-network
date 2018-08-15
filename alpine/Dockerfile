@@ -5,7 +5,7 @@ ENV APP_EXPLORER_TESTNET_URL https://testnet.explorer.minter.network
 
 RUN apk update && \
     apk upgrade && \
-    apk --no-cache add nginx nodejs git
+    apk --no-cache add nginx nodejs git gifsicle libjpeg-turbo-utils optipng
 
 # Create app directory
 WORKDIR /var/www
