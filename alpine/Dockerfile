@@ -1,7 +1,5 @@
 FROM nginx:alpine
 
-
-
 ARG EXPLORER_MAINNET_URL
 ARG EXPLORER_TESTNET_URL
 
@@ -20,6 +18,6 @@ RUN \
     cd minter-status-web && \
     npm install && npm run production
 
-ADD https://github.com/MinterTeam/minter-status-web/config/vhost.conf /etc/nginx/conf.d/default.conf
+ADD /config/vhost.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
