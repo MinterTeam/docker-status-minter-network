@@ -1,11 +1,14 @@
 FROM nginx:alpine
 
-ENV APP_EXPLORER_MAINNET_URL https://explorer.minter.network
-ENV APP_EXPLORER_TESTNET_URL https://testnet.explorer.minter.network
+ARG EXPLORER_MAINNET_URL
+ARG EXPLORER_TESTNET_URL
+
+ENV APP_EXPLORER_MAINNET_URL=$EXPLORER_MAINNET_URL
+ENV APP_EXPLORER_TESTNET_URL=$EXPLORER_TESTNET_URL
 
 RUN apk update && \
     apk upgrade && \
-    apk --no-cache add nginx nodejs git gifsicle libjpeg-turbo-utils optipng
+    apk --no-cache add autoconf nginx nodejs git gifsicle libjpeg-turbo-utils optipng
 
 # Create app directory
 WORKDIR /var/www
