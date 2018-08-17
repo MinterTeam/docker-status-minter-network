@@ -8,7 +8,8 @@ ENV APP_EXPLORER_TESTNET_URL=$EXPLORER_TESTNET_URL
 
 RUN apk update && \
     apk upgrade && \
-    apk --no-cache add autoconf nginx nodejs git gifsicle libjpeg-turbo-utils optipng
+    apk --no-cache add build-base automake autoconf nasm nginx nodejs git gifsicle libjpeg-turbo-utils optipng \
+                       libtool zlib zlib-dev libpng libpng-dev libwebp libwebp-dev libjpeg-turbo libjpeg-turbo-dev
 
 # Create app directory
 WORKDIR /var/www
