@@ -2,14 +2,35 @@ FROM nginx:alpine
 
 ARG EXPLORER_MAINNET_URL
 ARG EXPLORER_TESTNET_URL
+ARG EXPLORER_RTM_URL
 
 ENV APP_EXPLORER_MAINNET_URL=$EXPLORER_MAINNET_URL
 ENV APP_EXPLORER_TESTNET_URL=$EXPLORER_TESTNET_URL
+ENV APP_EXPLORER_RTM_URL=$EXPLORER_RTM_URL
 
 RUN apk update && \
     apk upgrade && \
-    apk --no-cache add build-base automake autoconf nasm nginx nodejs git gifsicle libjpeg-turbo-utils optipng \
-                       libtool zlib zlib-dev libpng libpng-dev libwebp libwebp-dev libjpeg-turbo libjpeg-turbo-dev
+    apk --no-cache add \
+        build-base \
+        automake \
+        autoconf \
+        nasm \
+        nginx \
+        nodejs \
+        nodejs-npm \
+        git \
+        gifsicle \
+        libjpeg-turbo-utils \
+        optipng \
+        libtool \
+        zlib \
+        zlib-dev \
+        libpng \
+        libpng-dev \
+        libwebp \
+        libwebp-dev \
+        libjpeg-turbo \
+        libjpeg-turbo-dev
 
 # Create app directory
 WORKDIR /var/www
